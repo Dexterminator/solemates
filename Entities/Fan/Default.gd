@@ -19,6 +19,7 @@ func update(delta):
 				var force = max_force - max_force * (dist / max_sock_dist)
 				body.dry(Vector2.UP.rotated(owner.fan_hitbox.get_parent().rotation) * force)
 		owner.fan_paricles.set_emitting(true)
+		owner.fan_paricles.set_visible(true)
 		owner.eyes.set_animation("fanning")
 		owner.mouth.set_animation("fanning")
 		speed = 100
@@ -29,5 +30,6 @@ func update(delta):
 				body.stop_drying()
 	else:
 		owner.fan_paricles.set_emitting(false)
+		owner.fan_paricles.set_visible(false)
 		owner.eyes.set_animation("default")
 		owner.mouth.set_animation("default")
