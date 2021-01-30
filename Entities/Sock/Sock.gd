@@ -6,6 +6,7 @@ onready var wet_particles = $WetParticles
 onready var drying_particles = $DryingParticles
 onready var timer = $Timer
 onready var eyes = $Eyes
+onready var mouth = $Mouth
 
 func _start_blink_timer():
 	timer.wait_time = rand_range(1, 6)
@@ -25,12 +26,18 @@ func _physics_process(delta):
 	var x = sign(force.x) * clamp(abs(force.x) - decay, 0, max_force)
 	var y = clamp(force.y + decay, -max_force, 0)
 	set_applied_force(Vector2(x, y))
+	if linear_velocity.length() > 500:
+		mouth.set_animation("surprised")
+	else:
+		mouth.set_animation("default")
 
 func dry():
+	mouth.set_animation("happy")
 	wet_particles.set_emitting(false)
 	drying_particles.set_emitting(true)
 
 func stop_drying():
+	mouth.set_animation("default")
 	wet_particles.set_emitting(true)
 	drying_particles.set_emitting(false)
 
