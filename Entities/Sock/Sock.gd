@@ -3,6 +3,7 @@ extends RigidBody2D
 onready var state_machine = $StateMachine
 onready var wet_particles = $WetParticles
 onready var drying_particles = $DryingParticles
+onready var dried_particles = $DriedParticles
 onready var sprite = $Sprite
 onready var timer = $Timer
 onready var eyes = $Eyes
