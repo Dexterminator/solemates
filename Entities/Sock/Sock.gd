@@ -19,6 +19,9 @@ func _blink():
 	yield(get_tree().create_timer(0.1), "timeout")
 	eyes.set_visible(true)
 	_start_blink_timer()
+	
+func _integrate_forces(state):
+	state_machine.current_state.integrate_forces(state)
 
 func _ready():
 	state_machine.initialize()
@@ -32,3 +35,6 @@ func stop_drying():
 
 func _on_Timer_timeout():
 	_blink()
+
+func _on_Sock_body_entered(body):
+	state_machine.current_state.on_body_entered(body)

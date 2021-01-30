@@ -1,6 +1,6 @@
 extends "res://Entities/Sock/sock_state.gd"
 
-var wet_hp = 100
+var wet_hp = 1
 
 func enter(_data):
 	owner.sprite.modulate = Color(0.6, 1, 1)
@@ -14,7 +14,6 @@ func dry(force):
 	owner.wet_particles.set_emitting(false)
 	owner.drying_particles.set_emitting(true)
 	wet_hp -= 1
-	print(wet_hp)
 	if wet_hp <= 0:
 		emit_signal("transition", "dry", null)
 

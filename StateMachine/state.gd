@@ -23,3 +23,6 @@ func on_anim_finished(_anim_name):
 
 func on_viewport_entered(_viewport):
 	pass
+
+func on_body_entered(_body):
+	pass

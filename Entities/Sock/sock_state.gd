@@ -5,3 +5,9 @@ func dry(_force):
 	
 func stop_drying():
 	pass
+
+func on_body_entered(_body):
+	pass
+
+func integrate_forces(state):
+	pass

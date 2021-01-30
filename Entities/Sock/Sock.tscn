@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Assets/sock.png" type="Texture" id=1]
 [ext_resource path="res://Entities/Sock/Sock.gd" type="Script" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Entities/Sock/Dry.gd" type="Script" id=10]
 [ext_resource path="res://Entities/Sock/Common.gd" type="Script" id=11]
 [ext_resource path="res://Assets/star.png" type="Texture" id=12]
+[ext_resource path="res://Entities/Sock/Matching.gd" type="Script" id=13]
 
 [sub_resource type="PhysicsMaterial" id=1]
 bounce = 0.3
@@ -87,6 +88,8 @@ color_ramp = SubResource( 9 )
 ]]
 physics_material_override = SubResource( 1 )
 gravity_scale = 2.0
+contacts_reported = 1
+contact_monitor = true
 script = ExtResource( 2 )
 
 [node name="Common" type="Node" parent="."]
@@ -101,6 +104,9 @@ script = ExtResource( 9 )
 
 [node name="Dry" type="Node" parent="StateMachine"]
 script = ExtResource( 10 )
+
+[node name="Matching" type="Node" parent="StateMachine"]
+script = ExtResource( 13 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 10.6904, 5.39041 )
@@ -155,4 +161,5 @@ explosiveness = 0.8
 randomness = 1.0
 process_material = SubResource( 7 )
 texture = ExtResource( 12 )
+[connection signal="body_entered" from="." to="." method="_on_Sock_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
