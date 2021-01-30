@@ -43,22 +43,23 @@ speed_scale = 2.0
 process_material = SubResource( 3 )
 
 [node name="ramp" type="Sprite" parent="."]
-position = Vector2( 120, 0 )
+position = Vector2( 90, 0 )
 scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 2 )
 
 [node name="ramp2" type="Sprite" parent="."]
-position = Vector2( -120, 0 )
+position = Vector2( -90, 0 )
 scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 2 )
 flip_h = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2( -1.23206, -2.77217 )
-polygon = PoolVector2Array( 69.7191, -30.6863, 200.116, 36.052, 42.2538, 35.7953 )
+position = Vector2( -1.45896, -2.77217 )
+polygon = PoolVector2Array( 68.0938, -30.3273, 127.11, 35.6416, 65.3117, 36.3041 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( -68.8665, -33.146, -41.0894, 33.0101, -198.21, 32.7981 )
+position = Vector2( 0, -0.226898 )
+polygon = PoolVector2Array( -68.8665, -33.146, -68.7312, 33.2876, -124.967, 33.1396 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
