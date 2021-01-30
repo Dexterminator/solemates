@@ -1,4 +1,4 @@
-extends "res://StateMachine/state.gd"
+extends "res://Entities/Sock/sock_state.gd"
 
 var wet_hp = 100
 
@@ -8,7 +8,8 @@ func enter(_data):
 func update(_delta):
 	owner.common.handle_forces()
 
-func dry():
+func dry(force):
+	owner.add_force(Vector2.ZERO, force)
 	owner.mouth.set_animation("happy")
 	owner.wet_particles.set_emitting(false)
 	owner.drying_particles.set_emitting(true)

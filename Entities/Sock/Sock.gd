@@ -23,13 +23,11 @@ func _ready():
 	state_machine.initialize()
 	_start_blink_timer()
 
-func dry():
-	if state_machine.current_state_name == "default":
-		state_machine.current_state.dry()
+func dry(force):
+	state_machine.current_state.dry(force)
 
 func stop_drying():
-	if state_machine.current_state_name == "default":
-		state_machine.current_state.stop_drying()
+	state_machine.current_state.stop_drying()
 
 func _on_Timer_timeout():
 	_blink()

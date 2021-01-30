@@ -25,10 +25,9 @@ func _physics_process(delta):
 	if Input.is_action_pressed("fan"):
 		for body in fan_hitbox.get_overlapping_bodies():
 			if body.is_in_group("socks"):
-				body.dry()
 				var dist = fan_hitbox.get_parent().global_position.y - body.global_position.y
 				var force = max_force - max_force * cube(dist / max_sock_dist)
-				body.add_force(Vector2.ZERO, Vector2.UP.rotated(fan_hitbox.get_parent().rotation) * force)
+				body.dry(Vector2.UP.rotated(fan_hitbox.get_parent().rotation) * force)
 		fan_paricles.set_emitting(true)
 		eyes.set_animation("fanning")
 		mouth.set_animation("fanning")
