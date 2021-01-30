@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Entities/Walls.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Entities/Sock/Sock.tscn" type="PackedScene" id=2]
@@ -7,9 +7,13 @@
 [ext_resource path="res://Scenes/Main/Main.gd" type="Script" id=5]
 [ext_resource path="res://Helpers/ShakeCamera2D.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Helpers/GUI.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Entities/WarpGate/WarpGate.tscn" type="PackedScene" id=8]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 5 )
+
+[node name="Ticker" type="Timer" parent="."]
+autostart = true
 
 [node name="ShakeCamera2D" parent="." instance=ExtResource( 6 )]
 anchor_mode = 0
@@ -43,6 +47,10 @@ margin_left = 21.0
 margin_top = 17.0
 margin_right = 183.0
 margin_bottom = 57.0
+
+[node name="WarpGate" parent="GUI" instance=ExtResource( 8 )]
+position = Vector2( 144.175, 83.743 )
+[connection signal="timeout" from="Ticker" to="." method="_on_Ticker_timeout"]
 [connection signal="dried" from="Sock" to="." method="_on_Sock_dried"]
 [connection signal="matched" from="Sock" to="." method="_on_Sock_matched"]
 [connection signal="dried" from="Sock2" to="." method="_on_Sock_dried"]
