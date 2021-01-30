@@ -3,9 +3,11 @@ extends RigidBody2D
 onready var state_machine = $StateMachine
 onready var wet_particles = $WetParticles
 onready var drying_particles = $DryingParticles
+onready var sprite = $Sprite
 onready var timer = $Timer
 onready var eyes = $Eyes
 onready var mouth = $Mouth
+onready var common = $Common
 
 func _start_blink_timer():
 	timer.wait_time = rand_range(1, 6)
@@ -22,14 +24,12 @@ func _ready():
 	_start_blink_timer()
 
 func dry():
-	mouth.set_animation("happy")
-	wet_particles.set_emitting(false)
-	drying_particles.set_emitting(true)
+	if state_machine.current_state_name == "default":
+		state_machine.current_state.dry()
 
 func stop_drying():
-	mouth.set_animation("default")
-	wet_particles.set_emitting(true)
-	drying_particles.set_emitting(false)
+	if state_machine.current_state_name == "default":
+		state_machine.current_state.stop_drying()
 
 func _on_Timer_timeout():
 	_blink()
