@@ -16,3 +16,6 @@ func on_body_entered(body):
 	if body.is_in_group("socks") and body.state_machine.current_state_name == "dry":
 		emit_signal("transition", "matching", null)
 		body.state_machine.current_state.emit_signal("transition", "matching", null)
+
+func exit():
+	owner.emit_signal("matched")

@@ -1,9 +1,12 @@
 extends RigidBody2D
 
+signal matched
+
 onready var state_machine = $StateMachine
 onready var wet_particles = $WetParticles
 onready var drying_particles = $DryingParticles
 onready var dried_particles = $DriedParticles
+onready var love_particles = $LoveParticles
 onready var sprite = $Sprite
 onready var timer = $Timer
 onready var eyes = $Eyes

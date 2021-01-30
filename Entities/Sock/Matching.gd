@@ -10,6 +10,7 @@ func _on_tween_completed():
 
 func enter(_data):
 	owner.mouth.set_animation("happy")
+	owner.love_particles.set_emitting(true)
 	owner.set_collision_layer(0)
 	owner.set_collision_mask(0)
 	tween = Tween.new()
