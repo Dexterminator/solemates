@@ -21,7 +21,7 @@ func update(delta):
 		owner.fan_paricles.set_emitting(true)
 		owner.eyes.set_animation("fanning")
 		owner.mouth.set_animation("fanning")
-		speed = 80
+		speed = 100
 	elif Input.is_action_just_released("fan"):
 		speed = 300
 		for body in owner.fan_hitbox.get_overlapping_bodies():
@@ -31,4 +31,3 @@ func update(delta):
 		owner.fan_paricles.set_emitting(false)
 		owner.eyes.set_animation("default")
 		owner.mouth.set_animation("default")
-		
