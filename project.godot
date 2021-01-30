@@ -17,7 +17,6 @@ _global_script_class_icons={
 
 config/name="solemates"
 run/main_scene="res://Scenes/Main/Main.tscn"
-config/icon="res://icon.png"
 
 [display]
 

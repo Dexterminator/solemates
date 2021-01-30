@@ -1,6 +1,7 @@
 extends RigidBody2D
 
 signal matched
+signal dried
 
 onready var state_machine = $StateMachine
 onready var wet_particles = $WetParticles

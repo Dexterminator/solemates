@@ -5,6 +5,7 @@ func enter(_data):
 	owner.wet_particles.set_emitting(false)
 	owner.drying_particles.set_emitting(false)
 	owner.dried_particles.set_emitting(true)
+	owner.emit_signal("dried")
 
 func update(_delta):
 	owner.common.handle_forces()
@@ -14,8 +15,6 @@ func dry(force):
 
 func on_body_entered(body):
 	if body.is_in_group("socks") and body.state_machine.current_state_name == "dry":
+		owner.emit_signal("matched")
 		emit_signal("transition", "matching", null)
 		body.state_machine.current_state.emit_signal("transition", "matching", null)
-
-func exit():
-	owner.emit_signal("matched")

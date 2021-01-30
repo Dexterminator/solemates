@@ -10,10 +10,6 @@ onready var fan_paricles = $Fan/Particles2D
 onready var eyes = $Fan/Eyes
 onready var mouth = $Fan/Mouth
 
-func cube(x):
-	return x
-#	return 1 - pow(1 - x, 3);
-
 func _physics_process(delta):
 	var direction = Input.get_action_strength("right") - Input.get_action_strength("left")
 	var velocity = direction * 500 * delta
@@ -26,7 +22,7 @@ func _physics_process(delta):
 		for body in fan_hitbox.get_overlapping_bodies():
 			if body.is_in_group("socks"):
 				var dist = fan_hitbox.get_parent().global_position.y - body.global_position.y
-				var force = max_force - max_force * cube(dist / max_sock_dist)
+				var force = max_force - max_force * (dist / max_sock_dist)
 				body.dry(Vector2.UP.rotated(fan_hitbox.get_parent().rotation) * force)
 		fan_paricles.set_emitting(true)
 		eyes.set_animation("fanning")

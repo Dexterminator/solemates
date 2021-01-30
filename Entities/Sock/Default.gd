@@ -14,7 +14,6 @@ func update(_delta):
 	owner.common.handle_forces()
 
 func dry(force):
-	print(wet_hp / initial_wet_hp)
 	owner.add_force(Vector2.ZERO, force)
 	owner.mouth.set_animation("happy")
 	owner.wet_particles.set_emitting(false)

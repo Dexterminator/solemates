@@ -53,25 +53,25 @@ animations = [ {
 "name": "surprised",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "happy",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
 } ]
 
-[sub_resource type="Gradient" id=8]
+[sub_resource type="Gradient" id=7]
 offsets = PoolRealArray( 0, 0.545283, 0.99434 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=9]
-gradient = SubResource( 8 )
+[sub_resource type="GradientTexture" id=8]
+gradient = SubResource( 7 )
 
-[sub_resource type="ParticlesMaterial" id=7]
+[sub_resource type="ParticlesMaterial" id=9]
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
 spread = 180.0
@@ -81,8 +81,8 @@ angular_velocity = 720.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 damping = 43.1
-scale = 0.2
-color_ramp = SubResource( 9 )
+scale = 0.25
+color_ramp = SubResource( 8 )
 
 [sub_resource type="ParticlesMaterial" id=10]
 emission_shape = 1
@@ -168,7 +168,7 @@ one_shot = true
 speed_scale = 3.0
 explosiveness = 0.8
 randomness = 1.0
-process_material = SubResource( 7 )
+process_material = SubResource( 9 )
 texture = ExtResource( 12 )
 
 [node name="LoveParticles" type="Particles2D" parent="."]
