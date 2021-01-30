@@ -1,7 +1,15 @@
 extends KinematicBody2D
 
 var speed = 1000
+var max_force = 400
+onready var max_sock_dist = 400
 onready var fan = $Fan
+onready var fan_hitbox = $Fan/Area2D
+onready var fan_paricles = $Fan/Particles2D
+
+func cube(x):
+	return x
+#	return 1 - pow(1 - x, 3);
 
 func _physics_process(delta):
 	var direction = Input.get_action_strength("right") - Input.get_action_strength("left")
@@ -9,5 +17,14 @@ func _physics_process(delta):
 	move_and_collide(Vector2(velocity, 0))
 
 	var aim_direction = Input.get_action_strength("aim_right") - Input.get_action_strength("aim_left")
-	print(Input.get_joy_axis(0, 1))
 	fan.rotation = aim_direction
+
+	if Input.is_action_pressed("fan"):
+		for body in fan_hitbox.get_overlapping_bodies():
+			if body.is_in_group("socks"):
+				var dist = fan_hitbox.get_parent().global_position.y - body.global_position.y
+				var force = max_force - max_force * cube(dist / max_sock_dist)
+				body.add_force(Vector2.ZERO, Vector2.UP.rotated(fan_hitbox.get_parent().rotation) * force)
+		fan_paricles.set_emitting(true)
+	else:
+		fan_paricles.set_emitting(false)
