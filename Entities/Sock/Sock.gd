@@ -41,6 +41,5 @@ func stop_drying():
 	wet_particles.set_emitting(true)
 	drying_particles.set_emitting(false)
 
-
 func _on_Timer_timeout():
 	_blink()
