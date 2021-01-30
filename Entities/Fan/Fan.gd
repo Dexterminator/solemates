@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 var speed = 1000
 var max_force = 400
+var drying = false
 onready var max_sock_dist = 400
 onready var fan = $Fan
 onready var fan_hitbox = $Fan/Area2D
@@ -22,9 +23,18 @@ func _physics_process(delta):
 	if Input.is_action_pressed("fan"):
 		for body in fan_hitbox.get_overlapping_bodies():
 			if body.is_in_group("socks"):
+				body.dry()
 				var dist = fan_hitbox.get_parent().global_position.y - body.global_position.y
 				var force = max_force - max_force * cube(dist / max_sock_dist)
 				body.add_force(Vector2.ZERO, Vector2.UP.rotated(fan_hitbox.get_parent().rotation) * force)
 		fan_paricles.set_emitting(true)
+	elif Input.is_action_just_released("fan"):
+		for body in fan_hitbox.get_overlapping_bodies():
+			if body.is_in_group("socks"):
+				body.stop_drying()
 	else:
 		fan_paricles.set_emitting(false)
+
+func _on_Area2D_body_exited(body):
+	if body.is_in_group("socks"):
+		body.stop_drying()

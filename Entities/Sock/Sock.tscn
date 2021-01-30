@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/sock.png" type="Texture" id=1]
 [ext_resource path="res://Entities/Sock/Sock.gd" type="Script" id=2]
 [ext_resource path="res://Assets/droplet.png" type="Texture" id=3]
+[ext_resource path="res://Assets/sock-eyes.png" type="Texture" id=4]
+[ext_resource path="res://Assets/sock-mouth.png" type="Texture" id=5]
 
 [sub_resource type="PhysicsMaterial" id=1]
 bounce = 0.3
@@ -19,6 +21,18 @@ emission_shape = 2
 emission_box_extents = Vector3( 13, 35, 1 )
 flag_disable_z = true
 gravity = Vector3( 0, 98, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.2
+
+[sub_resource type="ParticlesMaterial" id=5]
+emission_shape = 2
+emission_box_extents = Vector3( 30, 10, 1 )
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 206.9
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 0.2
@@ -44,9 +58,26 @@ position = Vector2( 10.2335, 37.2173 )
 rotation = -1.05775
 shape = SubResource( 3 )
 
-[node name="Particles2D" type="Particles2D" parent="."]
+[node name="WetParticles" type="Particles2D" parent="."]
 position = Vector2( -4.27332, -4 )
 lifetime = 0.5
 local_coords = false
 process_material = SubResource( 4 )
 texture = ExtResource( 3 )
+
+[node name="DryingParticles" type="Particles2D" parent="."]
+emitting = false
+speed_scale = 3.0
+local_coords = false
+process_material = SubResource( 5 )
+texture = ExtResource( 3 )
+
+[node name="Eyes" type="Sprite" parent="."]
+position = Vector2( -3.1678, -31 )
+scale = Vector2( 0.721, 0.721 )
+texture = ExtResource( 4 )
+
+[node name="Mouth" type="Sprite" parent="."]
+position = Vector2( -2.78978, -23.6857 )
+scale = Vector2( 0.721, 0.721 )
+texture = ExtResource( 5 )

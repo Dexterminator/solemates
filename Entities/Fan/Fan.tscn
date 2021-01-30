@@ -63,3 +63,4 @@ polygon = PoolVector2Array( -67.164, -33.1221, -68.7312, 33.2876, -124.967, 33.1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
+[connection signal="body_exited" from="Fan/Area2D" to="." method="_on_Area2D_body_exited"]
