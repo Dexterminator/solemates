@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Assets/no1fan.png" type="Texture" id=1]
 [ext_resource path="res://Assets/ramp.png" type="Texture" id=2]
@@ -7,6 +7,9 @@
 [ext_resource path="res://Assets/fan_eyes.png" type="Texture" id=5]
 [ext_resource path="res://Assets/fan-closed-eyes.png" type="Texture" id=6]
 [ext_resource path="res://Assets/fan-fanning-mouth.png" type="Texture" id=7]
+[ext_resource path="res://Entities/Fan/StateMachine.gd" type="Script" id=8]
+[ext_resource path="res://Entities/Fan/Default.gd" type="Script" id=9]
+[ext_resource path="res://Entities/Fan/Dashing.gd" type="Script" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 71.3538, 225.177 )
@@ -52,6 +55,20 @@ extents = Vector2( 69.1316, 33.9231 )
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
 script = ExtResource( 3 )
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource( 8 )
+start_state_name = "default"
+
+[node name="Default" type="Node" parent="StateMachine"]
+script = ExtResource( 9 )
+
+[node name="Dashing" type="Node" parent="StateMachine"]
+script = ExtResource( 10 )
+
+[node name="Timer" type="Timer" parent="StateMachine/Dashing"]
+wait_time = 0.12
+one_shot = true
 
 [node name="Fan" type="Sprite" parent="."]
 position = Vector2( -0.361969, -9.8925 )
@@ -103,4 +120,5 @@ polygon = PoolVector2Array( -67.164, -33.1221, -68.7312, 33.2876, -124.967, 33.1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 0.156494 )
 shape = SubResource( 5 )
+[connection signal="timeout" from="StateMachine/Dashing/Timer" to="StateMachine/Dashing" method="_on_Timer_timeout"]
 [connection signal="body_exited" from="Fan/Area2D" to="." method="_on_Area2D_body_exited"]
