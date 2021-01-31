@@ -9,6 +9,7 @@ func _on_tween_completed():
 	owner.queue_free()
 
 func enter(_data):
+	owner.matched_sfx.play()
 	owner.mouth.set_animation("happy")
 	owner.love_particles.set_emitting(true)
 	owner.set_collision_layer(0)
