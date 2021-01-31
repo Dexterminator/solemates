@@ -23,7 +23,7 @@ func _blink():
 	yield(get_tree().create_timer(0.1), "timeout")
 	eyes.set_visible(true)
 	_start_blink_timer()
-	
+
 func _integrate_forces(state):
 	state_machine.current_state.integrate_forces(state)
 
