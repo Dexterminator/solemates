@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Assets/sock.png" type="Texture" id=1]
 [ext_resource path="res://Entities/Sock/Sock.gd" type="Script" id=2]
@@ -25,16 +25,30 @@ extents = Vector2( 19.8396, 41.47 )
 radius = 16.8926
 height = 41.4067
 
-[sub_resource type="ParticlesMaterial" id=4]
+[sub_resource type="Gradient" id=4]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=6]
 emission_shape = 2
 emission_box_extents = Vector3( 13, 35, 1 )
 flag_disable_z = true
-gravity = Vector3( 0, 98, 0 )
+gravity = Vector3( 0, 140, 0 )
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 0.2
+color_ramp = SubResource( 5 )
 
-[sub_resource type="ParticlesMaterial" id=5]
+[sub_resource type="Gradient" id=13]
+offsets = PoolRealArray( 0, 0.992453 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=14]
+gradient = SubResource( 13 )
+
+[sub_resource type="ParticlesMaterial" id=7]
 emission_shape = 2
 emission_box_extents = Vector3( 30, 10, 1 )
 flag_disable_z = true
@@ -47,8 +61,9 @@ orbit_velocity_random = 0.0
 angle = 720.0
 angle_random = 1.0
 scale = 0.2
+color_ramp = SubResource( 14 )
 
-[sub_resource type="SpriteFrames" id=6]
+[sub_resource type="SpriteFrames" id=8]
 animations = [ {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
@@ -66,14 +81,14 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="Gradient" id=7]
+[sub_resource type="Gradient" id=9]
 offsets = PoolRealArray( 0, 0.545283, 0.99434 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=8]
-gradient = SubResource( 7 )
+[sub_resource type="GradientTexture" id=10]
+gradient = SubResource( 9 )
 
-[sub_resource type="ParticlesMaterial" id=9]
+[sub_resource type="ParticlesMaterial" id=11]
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
 spread = 180.0
@@ -84,9 +99,9 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 damping = 43.1
 scale = 0.25
-color_ramp = SubResource( 8 )
+color_ramp = SubResource( 10 )
 
-[sub_resource type="ParticlesMaterial" id=10]
+[sub_resource type="ParticlesMaterial" id=12]
 emission_shape = 1
 emission_sphere_radius = 65.42
 flag_disable_z = true
@@ -138,14 +153,14 @@ shape = SubResource( 3 )
 position = Vector2( -4.27332, -4 )
 lifetime = 0.5
 local_coords = false
-process_material = SubResource( 4 )
+process_material = SubResource( 6 )
 texture = ExtResource( 3 )
 
 [node name="DryingParticles" type="Particles2D" parent="."]
 emitting = false
 speed_scale = 3.0
 local_coords = false
-process_material = SubResource( 5 )
+process_material = SubResource( 7 )
 texture = ExtResource( 3 )
 
 [node name="Eyes" type="Sprite" parent="."]
@@ -156,7 +171,7 @@ texture = ExtResource( 4 )
 [node name="Mouth" type="AnimatedSprite" parent="."]
 position = Vector2( -2.78978, -23.6857 )
 scale = Vector2( 0.721, 0.721 )
-frames = SubResource( 6 )
+frames = SubResource( 8 )
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
@@ -170,12 +185,12 @@ one_shot = true
 speed_scale = 3.0
 explosiveness = 0.8
 randomness = 1.0
-process_material = SubResource( 9 )
+process_material = SubResource( 11 )
 texture = ExtResource( 12 )
 
 [node name="LoveParticles" type="Particles2D" parent="."]
 emitting = false
-process_material = SubResource( 10 )
+process_material = SubResource( 12 )
 texture = ExtResource( 14 )
 [connection signal="body_entered" from="." to="." method="_on_Sock_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
