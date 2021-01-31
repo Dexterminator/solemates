@@ -14,6 +14,7 @@ onready var eyes = $Eyes
 onready var mouth = $Mouth
 onready var common = $Common
 onready var drying_sfx = $DryingSound
+onready var dried_sfx = $DriedSound
 
 func _start_blink_timer():
 	timer.wait_time = rand_range(1, 3)
