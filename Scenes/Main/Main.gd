@@ -30,7 +30,7 @@ func _on_Ticker_timeout():
 	gui.set_time(game_time)
 
 func _on_SpawnTimer_timeout():
-	var x = rand_range(30, screen_size.x - 30)
+	var x = rand_range(50, screen_size.x - 50)
 	var warp_gate = WarpGate.instance()
 	add_child(warp_gate)
 	warp_gate.global_position.x = x
