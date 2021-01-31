@@ -18,7 +18,6 @@ func update(_delta):
 
 func dry(force):
 	var hp_ratio = wet_hp / initial_wet_hp
-	print(1-hp_ratio)
 	owner.drying_sfx.set_pitch_scale(1 + 0.5 * (1- hp_ratio))
 	if not owner.drying_sfx.is_playing():
 		owner.drying_sfx.play()

@@ -68,5 +68,6 @@ align = 1
 
 [node name="ButtonSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
+volume_db = -18.571
 [connection signal="pressed" from="Menu/VBoxContainer2/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="finished" from="ButtonSound" to="." method="_on_ButtonSound_finished"]
