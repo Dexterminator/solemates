@@ -17,7 +17,7 @@ func _ready():
 	gui.set_time(game_time)
 
 func _on_Sock_matched():
-	shake_camera.add_trauma(0.5)
+	shake_camera.add_trauma(0.4)
 	score += 100
 	gui.set_score(score)
 	sock_count -= 2

@@ -4,7 +4,7 @@
 [ext_resource path="res://Helpers/GUI.gd" type="Script" id=2]
 
 [sub_resource type="DynamicFont" id=1]
-size = 23
+size = 50
 font_data = ExtResource( 1 )
 
 [sub_resource type="Theme" id=2]
@@ -20,45 +20,45 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_right = 114.0
-margin_bottom = 58.0
+margin_right = 244.0
+margin_bottom = 118.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-margin_right = 114.0
-margin_bottom = 58.0
+margin_right = 244.0
+margin_bottom = 118.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
-margin_right = 114.0
-margin_bottom = 27.0
+margin_right = 244.0
+margin_bottom = 57.0
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
-margin_right = 97.0
-margin_bottom = 27.0
+margin_right = 211.0
+margin_bottom = 57.0
 custom_colors/font_color = Color( 0.388235, 0.388235, 0.388235, 1 )
 text = "Score: "
 uppercase = true
 
 [node name="Score" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
-margin_left = 101.0
-margin_right = 114.0
-margin_bottom = 27.0
+margin_left = 215.0
+margin_right = 244.0
+margin_bottom = 57.0
 custom_colors/font_color = Color( 0.388235, 0.388235, 0.388235, 1 )
 text = "0"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
-margin_top = 31.0
-margin_right = 114.0
-margin_bottom = 58.0
+margin_top = 61.0
+margin_right = 244.0
+margin_bottom = 118.0
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer2"]
-margin_right = 72.0
-margin_bottom = 27.0
+margin_right = 157.0
+margin_bottom = 57.0
 custom_colors/font_color = Color( 0.388235, 0.388235, 0.388235, 1 )
 text = "Time: "
 uppercase = true
 
 [node name="Time" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer2"]
-margin_left = 76.0
-margin_right = 76.0
-margin_bottom = 27.0
+margin_left = 161.0
+margin_right = 161.0
+margin_bottom = 57.0
 custom_colors/font_color = Color( 0.388235, 0.388235, 0.388235, 1 )

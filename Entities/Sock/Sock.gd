@@ -15,7 +15,7 @@ onready var mouth = $Mouth
 onready var common = $Common
 
 func _start_blink_timer():
-	timer.wait_time = rand_range(1, 6)
+	timer.wait_time = rand_range(1, 3)
 	timer.start()
 
 func _blink():
