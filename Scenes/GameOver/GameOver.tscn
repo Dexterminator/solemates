@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Comfortaa-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scenes/GameOver/GameOver.gd" type="Script" id=2]
+[ext_resource path="res://Assets/button_press.wav" type="AudioStream" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -112,6 +113,9 @@ custom_colors/font_color = Color( 0.305882, 0.305882, 0.305882, 1 )
 text = "Get rich or die drying."
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 1.5
 autostart = true
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="finished" from="SFX" to="." method="_on_SFX_finished"]

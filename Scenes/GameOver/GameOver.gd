@@ -3,6 +3,7 @@ extends Node2D
 var progress_possible = false
 onready var score_label = $MarginContainer/VBoxContainer/HBoxContainer2/ScoreLabel
 onready var pun_label = $MarginContainer/VBoxContainer/HBoxContainer3/PunLabel
+onready var sfx = $SFX
 const score_file = preload("res://Helpers/ScoreFile.gd")
 var puns = [
 	"Get rich or die drying.",
@@ -26,7 +27,10 @@ func _ready():
 
 func _process(delta):
 	if progress_possible and (Input.is_action_just_pressed("fan") or Input.is_action_just_pressed("ui_accept")):
-		get_tree().change_scene("res://Scenes/MainMenu/MainMenu.tscn")
+		sfx.play()
 
 func _on_Timer_timeout():
 	progress_possible = true
+
+func _on_SFX_finished():
+	get_tree().change_scene("res://Scenes/MainMenu/MainMenu.tscn")
