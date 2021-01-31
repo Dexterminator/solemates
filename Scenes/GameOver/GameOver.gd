@@ -13,6 +13,7 @@ var puns = [
 	"I scored zero points and became the laughing sock of the whole town.",
 	"Wow, those socks are in lint condition.",
 	"If you don't think this funny you need a dryer sense of humor.",
+	"You are a sock star!"
 ]
 
 func random_choice(arr):

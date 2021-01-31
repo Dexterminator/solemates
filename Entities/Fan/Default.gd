@@ -22,8 +22,11 @@ func update(delta):
 		owner.fan_paricles.set_visible(true)
 		owner.eyes.set_animation("fanning")
 		owner.mouth.set_animation("fanning")
+		if not owner.sfx.is_playing():
+			owner.sfx.play()
 		speed = 100
 	elif Input.is_action_just_released("fan"):
+		owner.sfx.stop()
 		speed = 300
 		for body in owner.fan_hitbox.get_overlapping_bodies():
 			if body.is_in_group("socks"):
