@@ -13,6 +13,7 @@ onready var timer = $Timer
 onready var eyes = $Eyes
 onready var mouth = $Mouth
 onready var common = $Common
+onready var drying_sfx = $DryingSound
 
 func _start_blink_timer():
 	timer.wait_time = rand_range(1, 3)
@@ -30,6 +31,10 @@ func _integrate_forces(state):
 func _ready():
 	state_machine.initialize()
 	_start_blink_timer()
+	var stream = drying_sfx.stream
+	stream.loop_mode = AudioStreamSample.LOOP_FORWARD
+	stream.loop_begin = 0
+	stream.loop_end = stream.get_length() * stream.mix_rate
 
 func dry(force):
 	state_machine.current_state.dry(force)
