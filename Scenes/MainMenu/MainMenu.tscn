@@ -30,7 +30,7 @@ __meta__ = {
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Menu"]
 margin_right = 674.0
-margin_bottom = 581.0
+margin_bottom = 503.0
 
 [node name="TextureRect" type="TextureRect" parent="Menu/VBoxContainer2"]
 margin_right = 674.0
@@ -53,8 +53,8 @@ custom_colors/font_color = Color( 0.305882, 0.305882, 0.305882, 1 )
 text = "
 Welcome to the sock dimension.
 
-The socks that end up here have lost their
-match, and didn't even get a chance to get dry!
+The socks that end up here have lost their match, 
+and didn't even get a chance to see the inside of a dryer.
 
 It's your job, as the #1 FAN, to guide these lost 
 socks to their solemates, nice and dry!
