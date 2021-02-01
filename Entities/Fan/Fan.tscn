@@ -10,7 +10,7 @@
 [ext_resource path="res://Entities/Fan/StateMachine.gd" type="Script" id=8]
 [ext_resource path="res://Entities/Fan/Default.gd" type="Script" id=9]
 [ext_resource path="res://Entities/Fan/Dashing.gd" type="Script" id=10]
-[ext_resource path="res://Assets/Hung Up Wind FX.wav" type="AudioStream" id=11]
+[ext_resource path="res://Assets/fan.wav" type="AudioStream" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 71.3538, 225.177 )
