@@ -7,7 +7,7 @@ onready var sprite = $Sprite
 func _process(delta):
 	sprite.rotation += 20 * delta
 
-func _on_tween_completed(_tween):
+func _on_tween_completed(_object, _key):
 	queue_free()
 
 func _ready():
