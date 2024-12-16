@@ -5,8 +5,8 @@ var score = 0
 var game_time = initial_game_time
 var sock_count = 0
 onready var shake_camera = $ShakeCamera2D
-onready var gui = $GUI
-onready var screen_size =  get_viewport_rect().size
+onready var gui = $CanvasLayer/GUI
+onready var screen_size = get_viewport_rect().size
 onready var spawn_timer = $SpawnTimer
 onready var ticker = $Ticker
 const WarpGate = preload("res://Entities/WarpGate/WarpGate.tscn")
@@ -28,7 +28,7 @@ func _on_Sock_dried():
 	gui.set_score(score)
 	
 func _game_over():
-	yield(get_tree().create_timer(1.5), "timeout")
+	yield (get_tree().create_timer(1.5), "timeout")
 	score_file.save_high_score(score)
 	get_tree().change_scene("res://Scenes/GameOver/GameOver.tscn")
 
@@ -46,7 +46,7 @@ func _on_SpawnTimer_timeout():
 	add_child(warp_gate)
 	warp_gate.global_position.x = x
 	warp_gate.global_position.y = 100
-	yield(get_tree().create_timer(1), "timeout")
+	yield (get_tree().create_timer(1), "timeout")
 	var sock = Sock.instance()
 	add_child(sock)
 	sock.global_position = warp_gate.sock_spawn.global_position
