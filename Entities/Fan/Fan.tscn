@@ -17,12 +17,13 @@ extents = Vector2( 71.3538, 225.177 )
 
 [sub_resource type="Gradient" id=2]
 offsets = PoolRealArray( 0.00754717, 1 )
-colors = PoolColorArray( 0.305882, 0.305882, 0.305882, 0.564706, 0.305882, 0.305882, 0.305882, 0 )
+colors = PoolColorArray( 0.54902, 0.54902, 0.54902, 0.415686, 0.305882, 0.305882, 0.305882, 0 )
 
 [sub_resource type="GradientTexture" id=3]
 gradient = SubResource( 2 )
 
 [sub_resource type="ParticlesMaterial" id=4]
+trail_divisor = 5
 emission_shape = 2
 emission_box_extents = Vector3( 75, 20, 1 )
 flag_disable_z = true
@@ -35,27 +36,27 @@ color_ramp = SubResource( 3 )
 
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "fanning",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "fanning",
 "speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
-"name": "fanning",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "fanning",
 "speed": 5.0
 } ]
 
@@ -99,7 +100,7 @@ shape = SubResource( 1 )
 position = Vector2( 0.472761, -51.7884 )
 amount = 70
 lifetime = 2.0
-speed_scale = 3.0
+speed_scale = 4.0
 process_material = SubResource( 4 )
 
 [node name="Eyes" type="AnimatedSprite" parent="Fan"]
@@ -133,5 +134,6 @@ polygon = PoolVector2Array( -67.164, -33.1221, -68.7312, 33.2876, -124.967, 33.1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 0.156494 )
 shape = SubResource( 7 )
+
 [connection signal="timeout" from="StateMachine/Dashing/Timer" to="StateMachine/Dashing" method="_on_Timer_timeout"]
 [connection signal="body_exited" from="Fan/Area2D" to="." method="_on_Area2D_body_exited"]
