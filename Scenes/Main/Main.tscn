@@ -43,5 +43,6 @@ margin_bottom = 57.0
 stream = ExtResource( 2 )
 volume_db = -9.595
 autoplay = true
+
 [connection signal="timeout" from="Ticker" to="." method="_on_Ticker_timeout"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]

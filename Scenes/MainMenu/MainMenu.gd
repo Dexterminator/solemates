@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var start_button = $Menu/VBoxContainer2/StartButton
+onready var start_button = $Menu/VBoxContainer2/MarginContainer/StartButton
 onready var button_sfx = $ButtonSound
 
 func _ready():
