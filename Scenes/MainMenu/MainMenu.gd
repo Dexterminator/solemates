@@ -4,6 +4,7 @@ onready var start_button = $Menu/VBoxContainer2/MarginContainer/StartButton
 onready var button_sfx = $ButtonSound
 
 func _ready():
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	start_button.grab_focus()
 
 func _on_StartButton_pressed():

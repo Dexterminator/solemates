@@ -78,24 +78,24 @@ alignment = 1
 margin_left = 180.0
 margin_right = 617.0
 margin_bottom = 79.0
-custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.305882, 0.305882, 0.305882, 1 )
+custom_fonts/font = SubResource( 3 )
 text = "You scored "
 
 [node name="ScoreLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
 margin_left = 621.0
 margin_right = 822.0
 margin_bottom = 79.0
-custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 1, 0.552941, 0.552941, 1 )
+custom_fonts/font = SubResource( 4 )
 text = "12345"
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
 margin_left = 826.0
 margin_right = 1098.0
 margin_bottom = 79.0
-custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0.305882, 0.305882, 0.305882, 1 )
+custom_fonts/font = SubResource( 5 )
 text = " points!"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
@@ -108,8 +108,8 @@ alignment = 1
 margin_left = 523.0
 margin_right = 755.0
 margin_bottom = 23.0
-custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0.305882, 0.305882, 0.305882, 1 )
+custom_fonts/font = SubResource( 6 )
 text = "Get rich or die drying."
 
 [node name="Timer" type="Timer" parent="."]
@@ -117,5 +117,7 @@ autostart = true
 
 [node name="SFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+volume_db = -18.0
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="finished" from="SFX" to="." method="_on_SFX_finished"]
