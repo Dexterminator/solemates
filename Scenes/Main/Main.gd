@@ -14,6 +14,7 @@ const Sock = preload("res://Entities/Sock/Sock.tscn")
 const score_file = preload("res://Helpers/ScoreFile.gd")
 
 func _ready():
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	gui.set_time(game_time)
 
 func _on_Sock_matched():
